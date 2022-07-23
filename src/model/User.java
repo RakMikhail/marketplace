@@ -5,8 +5,8 @@ import java.util.List;
 
 public class User {
     private final int id;
-    private  String firstName;
-    private  String lastName;
+    private String firstName;
+    private String lastName;
     private double amountOfMoney;
 
     private List<Product> listOfProducts = new ArrayList<>();
@@ -18,7 +18,7 @@ public class User {
         this.amountOfMoney = amountOfMoney;
     }
 
-    public void addProduct(Product product){
+    public void addProduct(Product product) {
         listOfProducts.add(product);
     }
 

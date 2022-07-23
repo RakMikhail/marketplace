@@ -1,7 +1,7 @@
 package utils;
 
 public class EmptyShoppingListException extends Throwable {
-    public EmptyShoppingListException(){
+    public EmptyShoppingListException() {
         super();
     }
 }

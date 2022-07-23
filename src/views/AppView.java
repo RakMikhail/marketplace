@@ -14,20 +14,20 @@ public class AppView {
         this.model = model;
     }
 
-    public int doChoice(){
+    public int doChoice() {
         int opinion;
         scanner = new Scanner(System.in);
         System.out.println("""
-        
-        ______ MENU ___________
-        1.- View users.
-        2.- View products.
-        3.- Buy product.
-        4.- User product list.
-        5.- Product user list.
-        
-        0.- Close app.
-        """);
+                        
+                ______ MENU ___________
+                1.- View users.
+                2.- View products.
+                3.- Buy product.
+                4.- User product list.
+                5.- Product user list.
+                        
+                0.- Close app.
+                """);
 
         choice = OptionValidator.validatorOption(scanner);
         model.setChoice(choice);

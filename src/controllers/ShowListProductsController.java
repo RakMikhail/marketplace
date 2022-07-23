@@ -15,32 +15,32 @@ public class ShowListProductsController {
     User user;
     List<Product> list;
 
-    public List<Product> checkList(HashMap<Integer, User> users){
+    public List<Product> checkList(HashMap<Integer, User> users) {
         System.out.println("Choice user id :");
-        int choice = ChoiceValidator.validation(scanner,users.keySet());
+        int choice = ChoiceValidator.validation(scanner, users.keySet());
         user = users.get(choice);
         list = user.getListOfProducts();
-        if (list.isEmpty()){
+        if (list.isEmpty()) {
             return null;
         }
-        System.out.printf("all products purchased by the user %s %s : \n",user.getFirstName(),user.getLastName());
+        System.out.printf("all products purchased by the user %s %s : \n", user.getFirstName(), user.getLastName());
         return list;
     }
 
 
-    public void showList(HashMap<Integer, User> users){
+    public void showList(HashMap<Integer, User> users) {
         int count = 1;
         try {
             list = checkList(users);
-            if (list == null){
+            if (list == null) {
                 throw new EmptyShoppingListException();
             }
-            for (Product product: list
+            for (Product product : list
             ) {
-                System.out.println(count +". "+ product.getName());
+                System.out.println(count + ". " + product.getName());
                 count++;
             }
-        }catch (EmptyShoppingListException emptyShoppingListException){
+        } catch (EmptyShoppingListException emptyShoppingListException) {
             System.out.println("empty shopping list");
         }
 

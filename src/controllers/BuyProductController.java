@@ -19,24 +19,25 @@ public class BuyProductController {
 
     public HashMap<Integer, User> buyProduct(HashMap<Integer, User> users, HashMap<Integer, Product> products) {
         System.out.println("Choice user id :");
-        userChoice = ChoiceValidator.validation(scanner,users.keySet());
+        userChoice = ChoiceValidator.validation(scanner, users.keySet());
         user = users.get(userChoice);
 
         System.out.println("Choice product id :");
-        productChoice = ChoiceValidator.validation(scanner,products.keySet());
+        productChoice = ChoiceValidator.validation(scanner, products.keySet());
         product = products.get(productChoice);
-        try{
-        if (user.getAmountOfMoney() < product.getPrice()){
-            throw new NotEnoughMoneyException();
-        }}
-        catch (NotEnoughMoneyException exception){
+        try {
+            if (user.getAmountOfMoney() < product.getPrice()) {
+                throw new NotEnoughMoneyException();
+            }
+        } catch (NotEnoughMoneyException exception) {
             System.out.println("not enough money!");
             return users;
         }
 
         users.get(userChoice).setAmountOfMoney(user.getAmountOfMoney() - product.getPrice());
         users.get(userChoice).addProduct(product);
-        System.out.printf("Congratulation, %s, you bought a %s\n",user.getFirstName(),product.getName());
+        product.addToList(user);
+        System.out.printf("Congratulation, %s, you bought a %s\n", user.getFirstName(), product.getName());
         return users;
 
 
