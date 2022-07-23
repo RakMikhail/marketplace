@@ -1,6 +1,7 @@
 package model;
 
 import controllers.BuyProductController;
+import controllers.ShowListProductsController;
 import views.ProductView;
 import views.UserView;
 
@@ -29,9 +30,11 @@ public class AppModel {
     }
     public void buyProduct(){
         BuyProductController buyingView = new BuyProductController();
-        users = buyingView.BuyProduct(users,getProducts());
+        users = buyingView.buyProduct(users,getProducts());
     }
     public void showListOfProductsByUser(){
+        ShowListProductsController showListProducts = new ShowListProductsController();
+        showListProducts.showList(users);
 
     }
     public void showListOfUsersByProduct(){

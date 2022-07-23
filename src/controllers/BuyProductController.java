@@ -17,7 +17,7 @@ public class BuyProductController {
     User user;
     Product product;
 
-    public HashMap<Integer, User> BuyProduct(HashMap<Integer, User> users, HashMap<Integer, Product> products) {
+    public HashMap<Integer, User> buyProduct(HashMap<Integer, User> users, HashMap<Integer, Product> products) {
         System.out.println("Choice user id :");
         userChoice = ChoiceValidator.validation(scanner,users.keySet());
         user = users.get(userChoice);
