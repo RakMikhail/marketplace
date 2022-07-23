@@ -1,6 +1,7 @@
 package model;
 
 import utils.AppStarter;
+import views.ProductView;
 import views.UserView;
 
 import java.util.HashMap;
@@ -23,7 +24,9 @@ public class AppModel {
     }
 
     public void showProducts(){
-
+        ProductView productView = new ProductView();
+        productView.showAllProducts(getProducts());
+        AppStarter.startApp();
     }
     public void buyProduct(){
 
@@ -44,5 +47,16 @@ public class AppModel {
         users.put(user2.getId(), user2);
         users.put(user3.getId(), user3);
         return users;
+    }
+
+    public static HashMap<Integer,Product> getProducts(){
+        HashMap<Integer,Product> products = new HashMap<>();
+        Product product1 = new Product(1,"Apple",5.1);
+        Product product2 = new Product(2,"Pineapple",6.7);
+        Product product3 = new Product(3,"Watermelon",7.2);
+        products.put(product1.getId(), product1);
+        products.put(product2.getId(), product2);
+        products.put(product3.getId(), product3);
+        return products;
     }
 }

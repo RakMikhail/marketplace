@@ -13,7 +13,6 @@ public class UserView {
     name : %s %s
     amount of money : %s
     
-    
     """,id,value.getFirstName(),value.getLastName(),roundValue(value.getAmountOfMoney())));
     }
 }
