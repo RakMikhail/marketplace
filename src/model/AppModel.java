@@ -1,6 +1,6 @@
 package model;
 
-import utils.AppStarter;
+import controllers.BuyProductController;
 import views.ProductView;
 import views.UserView;
 
@@ -8,6 +8,7 @@ import java.util.HashMap;
 
 public class AppModel {
     private int choice;
+    private HashMap<Integer,User> users = getUsers();
 
     public int getChoice() {
         return choice;
@@ -19,17 +20,16 @@ public class AppModel {
 
     public void showUsers(){
     UserView userView = new UserView();
-    userView.showAllUser(getUsers());
-    AppStarter.startApp();
+    userView.showAllUser(users);
     }
 
     public void showProducts(){
         ProductView productView = new ProductView();
         productView.showAllProducts(getProducts());
-        AppStarter.startApp();
     }
     public void buyProduct(){
-
+        BuyProductController buyingView = new BuyProductController();
+        users = buyingView.BuyProduct(users,getProducts());
     }
     public void showListOfProductsByUser(){
 
@@ -53,7 +53,7 @@ public class AppModel {
         HashMap<Integer,Product> products = new HashMap<>();
         Product product1 = new Product(1,"Apple",5.1);
         Product product2 = new Product(2,"Pineapple",6.7);
-        Product product3 = new Product(3,"Watermelon",7.2);
+        Product product3 = new Product(3,"Watermelon",70.2);
         products.put(product1.getId(), product1);
         products.put(product2.getId(), product2);
         products.put(product3.getId(), product3);

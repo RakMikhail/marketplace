@@ -19,11 +19,26 @@ public class AppController {
 
     private void filterChoice(int choice) {
         switch (choice) {
-            case 1 -> model.showUsers();
-            case 2 -> model.showProducts();
-            case 3 -> model.buyProduct();
-            case 4 -> model.showListOfProductsByUser();
-            case 5 -> model.showListOfUsersByProduct();
+            case 1 -> {
+                model.showUsers();
+                runApp();
+            }
+            case 2 -> {
+                model.showProducts();
+                runApp();
+            }
+            case 3 -> {
+                model.buyProduct();
+                runApp();
+            }
+            case 4 -> {
+                model.showListOfProductsByUser();
+                runApp();
+            }
+            case 5 -> {
+                model.showListOfUsersByProduct();
+                runApp();
+            }
             case 0 -> {
                 String output = "\n>> App has closed.";
                 view.getOutput(output, choice);
